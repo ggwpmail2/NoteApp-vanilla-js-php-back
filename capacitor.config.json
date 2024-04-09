@@ -1,0 +1,8 @@
+{
+  "appId": "com.noteapp.app",
+  "appName": "noteapp",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  }
+}

@@ -1,0 +1,7 @@
+@import './base.css';
+
+#app {
+    max-width: 1300px;
+    margin: 0 auto;
+    margin-top: 10vh;
+}

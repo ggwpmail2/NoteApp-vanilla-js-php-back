@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+      font-family: "Comfortaa", system-ui, sans-serif;
+    }
+  }
+.card-list {
+    @apply grid grid-cols-1 grid-rows-1 gap-3 md:grid-cols-3 md:grid-rows-3 m-4
+}
+.card {
+  @apply w-full border rounded-xl shadow-md shadow-gray-400/20 p-4;
+  &__head {
+    @apply flex justify-between;
+    &_title {
+      @apply font-normal text-xl flex-auto;
+      input {
+        @apply w-full border-none bg-gray-100 rounded-xl font-medium;
+        &:disabled {
+            @apply bg-transparent font-normal
+        }
+    }
+    }
+    &_edit {
+      @apply cursor-pointer px-1;
+      & svg {
+        @apply hover:text-black transition;
+      }
+
+     
+    }
+    &_delete {
+      @apply cursor-pointer px-1;
+      & svg {
+        @apply hover:text-red-600 transition;
+      }
+
+     
+    }
+  }
+  &__content {
+   @apply pt-2;
+    textarea {
+        resize: none;
+        @apply w-full border-none bg-gray-100 rounded-xl font-medium;
+        &:disabled {
+            @apply bg-transparent font-normal
+        }
+      }
+  }
+  &__footer {
+    @apply hidden;
+    &.show {
+    @apply flex justify-center;
+    }
+    &_accept {
+      @apply cursor-pointer px-2;
+      & svg {
+        @apply text-green-500 hover:text-green-800 transition w-8 h-8;
+      }
+    }
+    &_decline {
+      @apply cursor-pointer px-2;
+      & svg {
+        @apply text-red-500 hover:text-red-800 transition w-8 h-8;
+      }
+    }
+  }
+}
+.addpost {
+  @apply bg-purple-500 text-white hover:bg-purple-900 cursor-pointer text-center p-2 block mx-4 rounded-lg transition
+}
