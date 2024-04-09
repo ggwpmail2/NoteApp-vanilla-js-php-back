@@ -59,7 +59,6 @@ document.addEventListener('touchmove', e => {
 document.addEventListener('touchend', e => {
   if (pullToRefresh.classList.contains('visible')) {
     pullToRefresh.classList.remove('visible');
-    //location.reload();
     loadPosts()
   }
 });
