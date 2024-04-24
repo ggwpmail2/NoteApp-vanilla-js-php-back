@@ -1,30 +1,20 @@
-let section = document.querySelector('.section_post');
+const section = document.querySelector(".section_post");
 
-window.addEventListener('load',  function () {
-
-loadPosts();
-})
+window.addEventListener("load", function () {
+  loadPosts();
+});
 async function loadPosts() {
-    console.log('loading posts');
-    //let response = await fetch('https://jsonplaceholder.typicode.com/todos/');
-    let response = await fetch('https://note.wslx.ru/post-api.php',{
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-        }
-    });
-    // .then(response => response.json())
-    // .then((json) => {
-    //     return json;
-    // });
-    let result = await response.json();
-    // result.map(function (post) {
-    //    // html=loadPost(post);
-    //    // section.innerHTML=html;
-    // })
+  console.log("loading posts");
+  let response = await fetch("https://note.wslx.ru/post-api.php", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  let result = await response.json();
 
-const rows = result.map(post => {
-return `
+  const rows = result.map((post) => {
+    return `
 <div class="card" data-id="${post.id}">
     <div class="card__head">
         <div class="card__head_title"><input type="text" name="title" id="card_title" placeholder="Название"
@@ -61,12 +51,13 @@ return `
         </div>
     </div>
 </div>`;
-});
-const html = `${rows.join('')}`;''
-section.innerHTML = html; 
+  });
+  const html = `${rows.join("")}`;
+  ("");
+  section.innerHTML = html;
 }
 function addpost() {
-    let newPost = `
+  let newPost = `
     <div class="card" data-id="">
         <div class="card__head">
             <div class="card__head_title"><input type="text" name="title" id="card_title" placeholder="Название"
@@ -104,106 +95,123 @@ function addpost() {
         </div>
         <div class="card__confirm addpost" onclick="confirmPost(this)">Сохранить</div>
     </div>`;
-    section.innerHTML += newPost ; 
+  section.innerHTML += newPost;
 }
 async function confirmPost(confirmCurrent) {
-    let card = confirmCurrent.parentNode;
-    card.querySelector('.card__head_edit').classList.remove('hidden');
-    card.querySelector('.card__head_delete').classList.remove('hidden');
+  let card = confirmCurrent.parentNode;
+  card.querySelector(".card__head_edit").classList.remove("hidden");
+  card.querySelector(".card__head_delete").classList.remove("hidden");
 
-    let card_title = card.querySelector('#card_title');
-    card_title.disabled = true;
-    let card_description = card.querySelector('#card_description');
-    card_description.disabled = true;
-    let confirmButton = card.querySelector('.addpost');
-    confirmButton.remove();
-    let data = {
-        title: card_title.value,
-        description: card_description.value
-    }
-    console.log(data);
-    let response = await fetch('https://note.wslx.ru/post-api.php', {
-            method: 'POST',
-            mode: 'cors',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data)
-
-        });
-        let resp = await response.json();
-        console.log(resp);
+  let card_title = card.querySelector("#card_title");
+  card_title.disabled = true;
+  let card_description = card.querySelector("#card_description");
+  card_description.disabled = true;
+  let confirmButton = card.querySelector(".addpost");
+  confirmButton.remove();
+  let data = {
+    title: card_title.value,
+    description: card_description.value,
+  };
+  console.log(data);
+  let response = await fetch("https://note.wslx.ru/post-api.php", {
+    method: "POST",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+  let resp = await response.json();
 }
 function editos(editCurrent) {
-let card = editCurrent.parentNode.parentNode;
-        console.log('edit');
-        card.querySelector('.card__head_edit').classList.add('hidden');
-        card.querySelector('.card__head_delete').classList.add('hidden');
+  let card = editCurrent.parentNode.parentNode;
+  console.log("edit");
+  card.querySelector(".card__head_edit").classList.add("hidden");
+  card.querySelector(".card__head_delete").classList.add("hidden");
 
-        let card_title = card.querySelector('#card_title');
-     
-        card_title.disabled = false;
+  let card_title = card.querySelector("#card_title");
 
-        let card_description = card.querySelector('#card_description');
-       
-        card_description.disabled = false;
+  card_title.disabled = false;
 
-        let footer = card.querySelector('.card__footer');
-        let accept = card.querySelector('.card__footer_accept');
-        let decline = card.querySelector('.card__footer_decline');
+  let card_description = card.querySelector("#card_description");
 
-        footer.classList.add('show');
+  card_description.disabled = false;
 
-        decline.addEventListener('click', () => {
-            footer.classList.remove('show');
-            card_title.disabled = true;
-            card_description.disabled = true;
-            card.querySelector('.card__head_edit').classList.remove('hidden');
-            card.querySelector('.card__head_delete').classList.remove('hidden');
-        })
+  let footer = card.querySelector(".card__footer");
+  let accept = card.querySelector(".card__footer_accept");
+  let decline = card.querySelector(".card__footer_decline");
 
-        accept.addEventListener('click', async () => {
-            footer.classList.remove('show');
-            card_title.disabled = true;
-            card_description.disabled = true;
-            card.querySelector('.card__head_edit').classList.remove('hidden');
-            card.querySelector('.card__head_delete').classList.remove('hidden');
+  footer.classList.add("show");
 
+  decline.addEventListener("click", () => {
+    footer.classList.remove("show");
+    card_title.disabled = true;
+    card_description.disabled = true;
+    card.querySelector(".card__head_edit").classList.remove("hidden");
+    card.querySelector(".card__head_delete").classList.remove("hidden");
+  });
 
+  accept.addEventListener("click", async () => {
+    footer.classList.remove("show");
+    card_title.disabled = true;
+    card_description.disabled = true;
+    card.querySelector(".card__head_edit").classList.remove("hidden");
+    card.querySelector(".card__head_delete").classList.remove("hidden");
 
-            let editid=card.getAttribute('data-id');
-            let data = {
-                title: card_title.value,
-                description: card_description.value
-            }
-         
-            let response = await fetch('https://note.wslx.ru/post-api.php?id='+editid, {
-                    method: 'PUT',
-                    mode: 'cors',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data)
+    let editid = card.getAttribute("data-id");
+    let data = {
+      title: card_title.value,
+      description: card_description.value,
+    };
 
-                });
-                let resp = await response.json();
-                console.log(resp);
-        })
+    let response = await fetch(
+      "https://note.wslx.ru/post-api.php?id=" + editid,
+      {
+        method: "PUT",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
+    let resp = await response.json();
+    console.log(resp);
+  });
 }
 
 async function deleteos(editCurrent) {
-        let card = editCurrent.parentNode.parentNode;
-        console.log(card);
-        
-        let delid=card.getAttribute('data-id');
-        let response = await fetch('https://note.wslx.ru/post-api.php?id='+delid, {
-                method: 'DELETE',
-                mode: 'cors',
-                headers: {
-                    'Content-Type': 'application/json',
-                }
-            });
-            let data = await response.json();
-             console.log(data);
-        card.remove();
+  let card = editCurrent.parentNode.parentNode;
+  console.log(card);
+
+  let delid = card.getAttribute("data-id");
+  let response = await fetch("https://note.wslx.ru/post-api.php?id=" + delid, {
+    method: "DELETE",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  let data = await response.json();
+  console.log(data);
+  card.remove();
 }
+
+const pullToRefresh = document.querySelector(".pull-to-refresh");
+let touchstartY = 0;
+document.addEventListener("touchstart", (e) => {
+  touchstartY = e.touches[0].clientY;
+});
+document.addEventListener("touchmove", (e) => {
+  const touchY = e.touches[0].clientY;
+  const touchDiff = touchY - touchstartY;
+  if (touchDiff > 0 && window.scrollY === 0) {
+    pullToRefresh.classList.add("visible");
+  }
+});
+document.addEventListener("touchend", (e) => {
+  if (pullToRefresh.classList.contains("visible")) {
+    pullToRefresh.classList.remove("visible");
+    loadPosts();
+  }
+});
