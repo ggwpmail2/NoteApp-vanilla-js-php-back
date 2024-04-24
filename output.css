@@ -1553,13 +1553,13 @@ body {
 }
 
 .pull-to-refresh svg {
-  width:0px;
-  height:0px;
+  width: 0px;
+  height: 0px;
 }
 
 .pull-to-refresh.visible svg {
-  width:64px;
-  height:64px;
+  width: 64px;
+  height: 64px;
 }
 
 .pull-to-refresh.visible {
@@ -1593,193 +1593,144 @@ body {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   --tw-shadow-color: rgb(156 163 175 / 0.2);
   --tw-shadow: var(--tw-shadow-colored);
-  &__head {
-    display: flex;
-  }
-  &__head {
-    justify-content: space-between;
-  }
-  &__head {
-    &_title {
-      flex: 1 1 auto;
-    }
-    &_title {
-      font-size: 1.25rem;
-      line-height: 1.75rem;
-    }
-    &_title {
-      font-weight: 400;
-    }
-    &_title {
-      input {
-        width: 100%;
-      }
-      input {
-        border-radius: 0.75rem;
-      }
-      input {
-        border-style: none;
-      }
-      input {
-        --tw-bg-opacity: 1;
-        background-color: rgb(243 244 246 / var(--tw-bg-opacity));
-      }
-      input {
-        font-weight: 500;
-      }
-      input {
-        &:disabled {
-          background-color: transparent;
-        }
-        &:disabled {
-          font-weight: 400;
-        }
-      }
-    }
-    &_edit {
-      cursor: pointer;
-    }
-    &_edit {
-      padding-left: 0.25rem;
-      padding-right: 0.25rem;
-    }
-    &_edit {
-      & svg {
-        transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-        transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-        transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        transition-duration: 150ms;
-      }
-      & svg:hover {
-        --tw-text-opacity: 1;
-        color: rgb(0 0 0 / var(--tw-text-opacity));
-      }
-    }
-    &_delete {
-      cursor: pointer;
-    }
-    &_delete {
-      padding-left: 0.25rem;
-      padding-right: 0.25rem;
-    }
-    &_delete {
-      & svg {
-        transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-        transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-        transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        transition-duration: 150ms;
-      }
-      & svg:hover {
-        --tw-text-opacity: 1;
-        color: rgb(224 36 36 / var(--tw-text-opacity));
-      }
-    }
-  }
-  &__content {
-    padding-top: 0.5rem;
-  }
-  &__content {
-    textarea {
-      resize: none
-    }
-    textarea {
-      width: 100%;
-    }
-    textarea {
-      border-radius: 0.75rem;
-    }
-    textarea {
-      border-style: none;
-    }
-    textarea {
-      --tw-bg-opacity: 1;
-      background-color: rgb(243 244 246 / var(--tw-bg-opacity));
-    }
-    textarea {
-      font-weight: 500;
-    }
-    textarea {
-      &:disabled {
-        background-color: transparent;
-      }
-      &:disabled {
-        font-weight: 400;
-      }
-    }
-  }
-  &__footer {
-    display: none;
-  }
-  &__footer {
-    &.show {
-      display: flex;
-    }
-    &.show {
-      justify-content: center;
-    }
-    &_accept {
-      cursor: pointer;
-    }
-    &_accept {
-      padding-left: 0.5rem;
-      padding-right: 0.5rem;
-    }
-    &_accept {
-      & svg {
-        height: 2rem;
-      }
-      & svg {
-        width: 2rem;
-      }
-      & svg {
-        --tw-text-opacity: 1;
-        color: rgb(14 159 110 / var(--tw-text-opacity));
-      }
-      & svg {
-        transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-        transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-        transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        transition-duration: 150ms;
-      }
-      & svg:hover {
-        --tw-text-opacity: 1;
-        color: rgb(3 84 63 / var(--tw-text-opacity));
-      }
-    }
-    &_decline {
-      cursor: pointer;
-    }
-    &_decline {
-      padding-left: 0.5rem;
-      padding-right: 0.5rem;
-    }
-    &_decline {
-      & svg {
-        height: 2rem;
-      }
-      & svg {
-        width: 2rem;
-      }
-      & svg {
-        --tw-text-opacity: 1;
-        color: rgb(240 82 82 / var(--tw-text-opacity));
-      }
-      & svg {
-        transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-        transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-        transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        transition-duration: 150ms;
-      }
-      & svg:hover {
-        --tw-text-opacity: 1;
-        color: rgb(155 28 28 / var(--tw-text-opacity));
-      }
-    }
-  }
+}
+
+.card__head {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card__head_title {
+  flex: 1 1 auto;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 400;
+}
+
+.card__head_title input {
+  width: 100%;
+  border-radius: 0.75rem;
+  border-style: none;
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+  font-weight: 500;
+}
+
+.card__head_title input:disabled {
+  background-color: transparent;
+  font-weight: 400;
+}
+
+.card__head_edit {
+  cursor: pointer;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
+.card__head_edit svg {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.card__head_edit svg:hover {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.card__head_delete {
+  cursor: pointer;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
+.card__head_delete svg {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.card__head_delete svg:hover {
+  --tw-text-opacity: 1;
+  color: rgb(224 36 36 / var(--tw-text-opacity));
+}
+
+.card__content {
+  padding-top: 0.5rem;
+}
+
+.card__content textarea {
+  resize: none;
+  width: 100%;
+  border-radius: 0.75rem;
+  border-style: none;
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+  font-weight: 500;
+}
+
+.card__content textarea:disabled {
+  background-color: transparent;
+  font-weight: 400;
+}
+
+.card__footer {
+  display: none;
+}
+
+.card__footer.show {
+  display: flex;
+  justify-content: center;
+}
+
+.card__footer_accept {
+  cursor: pointer;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.card__footer_accept svg {
+  height: 2rem;
+  width: 2rem;
+  --tw-text-opacity: 1;
+  color: rgb(14 159 110 / var(--tw-text-opacity));
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.card__footer_accept svg:hover {
+  --tw-text-opacity: 1;
+  color: rgb(3 84 63 / var(--tw-text-opacity));
+}
+
+.card__footer_decline {
+  cursor: pointer;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.card__footer_decline svg {
+  height: 2rem;
+  width: 2rem;
+  --tw-text-opacity: 1;
+  color: rgb(240 82 82 / var(--tw-text-opacity));
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.card__footer_decline svg:hover {
+  --tw-text-opacity: 1;
+  color: rgb(155 28 28 / var(--tw-text-opacity));
 }
 
 .addpost {
@@ -1968,3 +1919,4 @@ body {
 .rtl\:space-x-reverse:where([dir="rtl"], [dir="rtl"] *) > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 1;
 }
+/*# sourceMappingURL=output.css.map */
