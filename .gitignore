@@ -34,3 +34,6 @@ v1.zip
 .vs-code
 
 index2.html
+/src/components/
+App.vue
+main.js
