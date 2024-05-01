@@ -12,15 +12,16 @@
     overscroll-behavior-y: auto;
   }
   .pull-to-refresh {
-    position: fixed;
+    //position: fixed;  
     top: -50px;
     width: 100%;
-    height: 60px;
+    height: 0px;
+    max-height:80px;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: top 0.25s ease-in-out;
-  
+    background-color: #dddddd7d;
   }
   .pull-to-refresh svg {
       width:0px;
@@ -39,7 +40,10 @@
     @apply grid grid-cols-1 grid-rows-1 gap-3 md:grid-cols-3 md:grid-rows-3 m-4
 }
 .card {
-  @apply w-full border rounded-xl shadow-md shadow-gray-400/20 p-4;
+  @apply w-full border rounded-xl shadow-md shadow-gray-400/20 p-4 opacity-100;
+  &.hide-delete {
+    animation: remove 1s linear forwards;
+  }
   &__head {
     @apply flex justify-between;
     &_title {
@@ -98,5 +102,45 @@
   }
 }
 .addpost {
-  @apply bg-purple-500 text-white hover:bg-purple-900 cursor-pointer text-center p-2 block mx-4 rounded-lg transition
+  @apply bg-purple-500 text-white hover:bg-purple-900 cursor-pointer text-center p-2 block mx-4 mb-8 rounded-lg transition
+}
+@keyframes remove {
+  20% {
+    opacity: 0;
+    width: 190px;
+  }
+  25% {
+    width: 180px;
+  }
+  30% {
+    width: 160px;
+  }
+  40% {
+    width: 100px;
+  }
+  50% {
+    width: 30px;
+  }
+  55% {
+    width: 0px;
+  }
+  70% {
+    width: 30px;
+  }
+  80% {
+    width: 15px;
+  }
+  85% {
+    width: 0px;
+  }
+  90% {
+    width: 12px;
+  }
+  94% {
+    width: 10px;
+  }
+  100% {
+    opacity: 0;
+    width: 0px;
+  }
 }

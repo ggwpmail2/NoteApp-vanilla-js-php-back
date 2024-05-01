@@ -1542,14 +1542,15 @@ body {
 }
 
 .pull-to-refresh {
-  position: fixed;
   top: -50px;
   width: 100%;
-  height: 60px;
+  height: 0px;
+  max-height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: top 0.25s ease-in-out;
+  background-color: rgba(221, 221, 221, 0.4901960784);
 }
 
 .pull-to-refresh svg {
@@ -1588,11 +1589,16 @@ body {
   border-radius: 0.75rem;
   border-width: 1px;
   padding: 1rem;
+  opacity: 1;
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   --tw-shadow-color: rgb(156 163 175 / 0.2);
   --tw-shadow: var(--tw-shadow-colored);
+}
+
+.card.hide-delete {
+  animation: remove 1s linear forwards;
 }
 
 .card__head {
@@ -1736,6 +1742,7 @@ body {
 .addpost {
   margin-left: 1rem;
   margin-right: 1rem;
+  margin-bottom: 2rem;
   display: block;
   cursor: pointer;
   border-radius: 0.5rem;
@@ -1755,6 +1762,58 @@ body {
 .addpost:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(74 29 150 / var(--tw-bg-opacity));
+}
+
+@keyframes remove {
+  20% {
+    opacity: 0;
+    width: 190px;
+  }
+
+  25% {
+    width: 180px;
+  }
+
+  30% {
+    width: 160px;
+  }
+
+  40% {
+    width: 100px;
+  }
+
+  50% {
+    width: 30px;
+  }
+
+  55% {
+    width: 0px;
+  }
+
+  70% {
+    width: 30px;
+  }
+
+  80% {
+    width: 15px;
+  }
+
+  85% {
+    width: 0px;
+  }
+
+  90% {
+    width: 12px;
+  }
+
+  94% {
+    width: 10px;
+  }
+
+  100% {
+    opacity: 0;
+    width: 0px;
+  }
 }
 
 .hover\:border-gray-300:hover {

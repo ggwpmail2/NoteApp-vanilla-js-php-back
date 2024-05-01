@@ -176,15 +176,16 @@ function editos(editCurrent) {
       }
     );
     let resp = await response.json();
-    console.log(resp);
+  
   });
 }
 
 async function deleteos(editCurrent) {
   let card = editCurrent.parentNode.parentNode;
-  console.log(card);
+
 
   let delid = card.getAttribute("data-id");
+  
   let response = await fetch("https://note.wslx.ru/post-api.php?id=" + delid, {
     method: "DELETE",
     mode: "cors",
@@ -193,8 +194,13 @@ async function deleteos(editCurrent) {
     },
   });
   let data = await response.json();
-  console.log(data);
-  card.remove();
+
+
+  card.classList.add("hide-delete");
+  setTimeout(card_del , 300);
+  function card_del() {
+    card.remove()
+  }
 }
 
 const pullToRefresh = document.querySelector(".pull-to-refresh");
@@ -207,11 +213,13 @@ document.addEventListener("touchmove", (e) => {
   const touchDiff = touchY - touchstartY;
   if (touchDiff > 0 && window.scrollY === 0) {
     pullToRefresh.classList.add("visible");
+    pullToRefresh.style.height = touchDiff + "px";
   }
 });
 document.addEventListener("touchend", (e) => {
   if (pullToRefresh.classList.contains("visible")) {
     pullToRefresh.classList.remove("visible");
+    pullToRefresh.style.height = 0;
     loadPosts();
   }
 });
