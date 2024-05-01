@@ -35,5 +35,7 @@ v1.zip
 
 index2.html
 /src/components/
-App.vue
-main.js
+/src/App.vue
+/src/main.js
+/public/
+/public/favicon.ico
