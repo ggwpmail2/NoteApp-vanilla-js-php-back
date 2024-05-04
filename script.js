@@ -4,7 +4,7 @@ window.addEventListener("load", function () {
   loadPosts();
 });
 async function loadPosts() {
-  console.log("loading posts");
+  //console.log("loading posts");
   let response = await fetch("https://note.wslx.ru/post-api.php", {
     method: "GET",
     headers: {
@@ -17,8 +17,8 @@ async function loadPosts() {
     return `
 <div class="card" data-id="${post.id}">
     <div class="card__head">
-        <div class="card__head_title"><input type="text" name="title" id="card_title" placeholder="Название"
-                Value="${post.title}" disabled></div>
+        <div class="card__head_title"><input type="text" name="title" id="card_title" placeholder=""
+                value="${post.title}" disabled></div>
         <div class="card__head_edit" onclick="editos(this)"><svg class="w-6 h-6 text-gray-500 dark:text-white" aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -33,7 +33,7 @@ async function loadPosts() {
         </div>
     </div>
     <div class="card__content">
-        <textarea id="card_description" name="description" placeholder="Описание" value=""
+        <textarea id="card_description" name="description" placeholder="" value=""
             disabled>${post.description}</textarea>
     </div>
     <div class="card__footer">
@@ -112,7 +112,7 @@ async function confirmPost(confirmCurrent) {
     title: card_title.value,
     description: card_description.value,
   };
-  console.log(data);
+  
   let response = await fetch("https://note.wslx.ru/post-api.php", {
     method: "POST",
     mode: "cors",
@@ -122,10 +122,11 @@ async function confirmPost(confirmCurrent) {
     body: JSON.stringify(data),
   });
   let resp = await response.json();
+  card.setAttribute("data-id", resp);
 }
 function editos(editCurrent) {
   let card = editCurrent.parentNode.parentNode;
-  console.log("edit");
+  
   card.querySelector(".card__head_edit").classList.add("hidden");
   card.querySelector(".card__head_delete").classList.add("hidden");
 
