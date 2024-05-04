@@ -7,7 +7,6 @@
   <title>NoteApp</title>
   <link rel="manifest" href="napp.pwa.json">
   <link href="./output.css" rel="stylesheet">
-  <script src="./flowbite.min.js"></script>
   <link rel="icon" href="/src/assets/icon.png" type="image/png ">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,7 +37,9 @@
     Загрузка
   </section>
   <div class="addpost" onclick="addpost()" id="addpost">Добавить</div>
-  <script type="text/javascript" src="script.js"></script>
+    <!-- # INSERT SCRIPT HERE -->
+  <script type="module" src="./flowbite.min.js"></script>
+  <script type="module" type="text/javascript" src="script.js"></script>
   <script>
     if ("serviceWorker" in navigator) {
       self.addEventListener("load", async () => {
